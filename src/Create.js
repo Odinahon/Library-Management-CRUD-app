@@ -8,6 +8,8 @@ const Create = () => {
   const [author, setAuthor] = useState("");
   const [isPending, setIsPending] = useState(false);
   const history = useHistory();
+
+  
   const handleSubmit = (e) => {
     e.preventDefault(); //prevent from refreshing the page when we click the button add book
     const book = { title, description, author };

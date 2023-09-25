@@ -42,7 +42,7 @@
 .search-bar form {
   background-color: #f6f3f3;
   width: 300px;
-  height: 44px;
+  height: 40px;
   border-radius: 5px;
   display: flex;
   flex-direction: row;
@@ -54,22 +54,26 @@
   color: #121111;
   height: 100%;
   width: 100%;
+ 
   padding: 6px 10px;
+  
 }
 .search-bar button {
   all: unset;
   cursor: pointer;
-  width: 44px;
-  height: 44px;
+  width: 80px;
+  height: 40px;
+  background-color: #ddd;
+  
 }
 
-.search-bar svg {
+/* .search-bar svg {
   color: #e6dcdc;
   fill: currentColor;
   width: 24px;
   height: 24px;
   padding: 10px;
-}
+} */
 .content {
   max-width: 600px;
   margin: 40px auto;

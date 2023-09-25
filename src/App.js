@@ -4,7 +4,6 @@ import Home from "./Home";
 import Navbar from "./Navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NotFound from "./NotFound";
-import Edit from "./Edit";
 import EditBook from "./EditBook";
 
 function App() {
@@ -26,9 +25,6 @@ function App() {
             </Route>
             <Route path="/edit/:id">
               <EditBook></EditBook>
-            </Route>
-            <Route path="/edit">
-              <Edit></Edit>
             </Route>
             <Route path="*">
               <NotFound></NotFound>

@@ -20,10 +20,20 @@ const EditBook = () => {
   }
 
   const [description, setDescription] = useState("");
+  
   const [title, setTitle] = useState("");
+  
   const [author, setAuthor] = useState("");
+  
   //   const [isPending, setIsPending] = useState(false);
+  // {book && <div>
+  //   setDescription(book.description);
+  //   setTitle(book.title);
+  //   setAuthor(book.author);
+  //   console.log(book);
 
+  // </div>}
+  
   const [isEdited, setIsEdited] = useState(false);
 
   const handleSubmit = (e) => {
@@ -33,12 +43,6 @@ const EditBook = () => {
     if (title === null) {
       setTitle(title);
     }
-    // if (description === "") {
-    //   setDescription(book.description);
-    // }
-    // if (author === "") {
-    //   setAuthor(book.author);
-    // }
     console.log(newBook);
     fetch("http://localhost:8000/books/" + book.id, {
       method: "PUT",
@@ -60,7 +64,8 @@ const EditBook = () => {
           <input
             type="text"
             required
-            defaultValue={book.title}
+            // value={book.title}
+             defaultValue={book.title}
             readOnly={false}
             // isEdited={false}
             onChange={(e) => {
