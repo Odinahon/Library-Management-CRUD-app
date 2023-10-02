@@ -1,6 +1,7 @@
 import useFetch from "./useFetch";
 import BookList from "./BookList";
-import SearchBar from "./SearchBar";
+// import SearchBar from "./SearchBar";
+import Search from "./Search";
 
 const Home = () => {
   const {
@@ -12,8 +13,10 @@ const Home = () => {
     <div className="home">
       {error && <div>{error}</div>}
       {isPending && <div>Loading...</div>}
-      {books && <SearchBar books={books}></SearchBar>}
-      {books && <BookList books={books} title="List of Books"></BookList>}
+      
+      {books && <BookList books = {books} title="List of Books"></BookList>}
+      {books && <Search books = {books}></Search>}
+      {/* {books && <SearchBar books={books}></SearchBar>} */}
     </div>
   );
 };

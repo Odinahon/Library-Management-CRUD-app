@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import BookDetails from "./BookDetails";
 // We need to things to do register states here from Home.js component and imprort useState
 
-const useFetch = (url) => {
+const useFetch = (url, setBookDetails) => {
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(false);
@@ -18,6 +19,13 @@ const useFetch = (url) => {
         })
         .then((data) => {
           setData(data);
+          if(setBookDetails){
+            setBookDetails({
+              title:data.title,
+              description: data.description,
+              author:data.author,
+            });
+          }
           setIsPending(false);
           setError(null);
         })

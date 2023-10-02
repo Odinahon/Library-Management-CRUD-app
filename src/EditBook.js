@@ -5,25 +5,30 @@ import { useState } from "react";
 const EditBook = () => {
   // grab the id of the book, so I need to use useParams hook
   // second part now I can use my custom hook useFetch to fetch the data from db.json file
-
+  const [bookDetails, setBookDetails] =useState({
+    title:"",
+    description:"",
+    author:"",
+  });
   const { id } = useParams();
   const {
     data: book,
     error,
     isPending,
-  } = useFetch("http://localhost:8000/books/" + id);
-  {
-    isPending && <div>Loading...</div>;
-  }
-  {
-    error && <div>Error</div>;
-  }
+  } = useFetch("http://localhost:8000/books/" + id, setBookDetails);
+  // {
+  //   isPending && <div>Loading...</div>;
+  // }
+  // {
+  //   error && <div>Error</div>;
+  // }
+  
 
-  const [description, setDescription] = useState("");
+  // const [description, setDescription] = useState("");
   
-  const [title, setTitle] = useState("");
+  // const [title, setTitle] = useState("");
   
-  const [author, setAuthor] = useState("");
+  // const [author, setAuthor] = useState("");
   
   //   const [isPending, setIsPending] = useState(false);
   // {book && <div>
@@ -39,10 +44,8 @@ const EditBook = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newBook = { title, description, author };
-    if (title === null) {
-      setTitle(title);
-    }
+    const newBook = bookDetails;
+    
     console.log(newBook);
     fetch("http://localhost:8000/books/" + book.id, {
       method: "PUT",
@@ -54,6 +57,9 @@ const EditBook = () => {
       console.log("book edited");
     });
   };
+  if(isPending){
+    return <div>Loading...</div>;
+  }
   return (
     <div className="edit">
       <h2>Edit Book - {id}</h2>
@@ -65,31 +71,31 @@ const EditBook = () => {
             type="text"
             required
             // value={book.title}
-             defaultValue={book.title}
+             defaultValue={bookDetails.title}
             readOnly={false}
             // isEdited={false}
             onChange={(e) => {
-              setTitle(e.target.value);
+              setBookDetails({ ...bookDetails, title:e.target.value});
               setIsEdited(true);
             }}
           ></input>
           <label>Book description:</label>
           <textarea
             required
-            defaultValue={book.description}
+            defaultValue={bookDetails.description}
             readOnly={false}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) => setBookDetails({ ...bookDetails, description:e.target.value})}
           ></textarea>
           <label>Book author:</label>
           <input
             type="text"
             required
-            defaultValue={book.author}
+            defaultValue={bookDetails.author}
             readOnly={false}
-            onChange={(e) => setAuthor(e.target.value)}
+            onChange={(e) => setBookDetails({ ...bookDetails, author:e.target.value})}
           ></input>
           <button>Edit Book</button>
-          <p>{title}</p>
+          <p>{bookDetails.title}</p>
         </form>
       )}
     </div>
