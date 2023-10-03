@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const EditBook = () => {
   // grab the id of the book, so I need to use useParams hook
@@ -16,6 +17,7 @@ const EditBook = () => {
     error,
     isPending,
   } = useFetch("http://localhost:8000/books/" + id, setBookDetails);
+  const history = useHistory();
   // {
   //   isPending && <div>Loading...</div>;
   // }
@@ -55,6 +57,7 @@ const EditBook = () => {
       body: JSON.stringify(newBook),
     }).then(() => {
       console.log("book edited");
+      history.push("/");
     });
   };
   if(isPending){
