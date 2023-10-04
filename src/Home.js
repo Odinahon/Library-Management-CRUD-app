@@ -10,16 +10,15 @@ const Home = () => {
     isPending,
     error,
   } = useFetch("http://localhost:8000/books");
-
-  const [lookupValue, setLookupValue] = useState('');
   return (
     <div className="home">
       {error && <div>{error}</div>}
       {isPending && <div>Loading...</div>}
       
       {books && <BookList books = {books} title="List of Books"></BookList>}
-      {books && <Search books = {books} lookupValue ={lookupValue} setLookupValue={setLookupValue}></Search>}
+      {books && <Search books = {books}></Search>}
       {/* {books && <SearchBar books={books}></SearchBar>} */}
+
     </div>
   );
 };

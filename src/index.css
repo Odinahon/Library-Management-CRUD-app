@@ -183,3 +183,36 @@
   border-radius: 8px;
   cursor: pointer;
 }
+.search {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.search input,
+.search textarea,
+.search select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.search button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.search h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
+.search-result h2, li {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
