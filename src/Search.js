@@ -2,42 +2,18 @@
 import { useState } from "react";
 import SearchResult from "./SearchResult";
 
-const Search = ({ books}) => {
-    const [selectedOption, setSelectedOption] = useState("");
-    const [compareValue, setCompareValue] = useState(selectedOption);
-    const [lookupValue, setLookupValue] = useState('');
-    console.log(books);
-    let newBooks = books;
-
-
-
-    // const [bookDetails, setBookDetails] =useState({
-    //     title:"",
-    //     description:"",
-    //     author:"",
-    //   });
-
-
-
-    const handleChange = (option) =>{
-        setSelectedOption(option);
-    }
-    // const onSubmit =(e)=>{
-    //     e.preventDefault();
-    //     console.log('Submit button is hitted');
-
-    //     if(selectedOption==='author'){
-    //         newBooks = books.filter((book) => book.author=== compareValue);
-    //     } else {
-    //         newBooks = books.filter((book) => book.title=== compareValue);
-    //     }
-    // }
+const Search = ({ books, lookupValue, setLookupValue}) => {
+    // const [selectedOption, setSelectedOption] = useState("");
+    // const [compareValue, setCompareValue] = useState(selectedOption);
+    // const [lookupValue, setLookupValue] = useState('');
+    
+    const[newBooks, setNewBooks] = useState([]);
+    
+    
     const submitHandler = (event) =>{
         event.preventDefault();
-        newBooks = books.filter((book) => book.author=== lookupValue);
-        // setBookDetails({ ...bookDetails, newBooks});
-        console.log(newBooks);
-        // console.log(bookDetails);
+        const newArr = books.filter((book) => book.author=== lookupValue);
+        setNewBooks([...newArr])
     }
     return ( 
         <div>

@@ -16,7 +16,7 @@ const Home = () => {
       {isPending && <div>Loading...</div>}
       
       {books && <BookList books = {books} title="List of Books"></BookList>}
-      {books && <Search books = {books}></Search>}
+      {/* {books && <Search books = {books}></Search>} */}
       {/* {books && <SearchBar books={books}></SearchBar>} */}
 
     </div>
