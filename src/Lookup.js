@@ -27,6 +27,7 @@ const Lookup =({lookupValue, setLookupValue}) =>{
                 <button> Go </button>
             </form>
             <div>
+            
           <SearchResult books = {newBooks} author ={lookupValue}></SearchResult>
         
         </div>
