@@ -65,7 +65,8 @@ const EditBook = () => {
   }
   return (
     <div className="edit">
-      <h2>Edit Book - {id}</h2>
+      {/* <h2>Edit Book - {id}</h2> */}
+      <h2>Edit Book</h2>
       {book && (
         <form onSubmit={handleSubmit}>
           <label>Book title</label>
@@ -98,7 +99,7 @@ const EditBook = () => {
             onChange={(e) => setBookDetails({ ...bookDetails, author:e.target.value})}
           ></input>
           <button>Edit Book</button>
-          <p>{bookDetails.title}</p>
+          {/* <p>{bookDetails.title}</p> */}
         </form>
       )}
     </div>
